@@ -14,8 +14,10 @@
       		<hr>
 
       		<form action="hello_world_2" method="POST" class="well form-inline ajax" >
-				<input type="text" class="input-small" name="test-input" placeholder="sample input">
-				<button type="submit" class="btn" data-loading-text="submitting...">Do This</button>
+                        <div class="control-group">
+                              <input type="text" class="input-small" name="test-input" placeholder="sample input">
+                              <button type="submit" class="btn" data-loading-text="submitting...">Do This</button>
+                        </div>
 			</form>
 
       	</div>

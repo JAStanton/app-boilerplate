@@ -72,6 +72,23 @@ var myApp = function() {
 						if(params.display_in_div){
 							$("#" + params.display_div).html(resp.message);
 						}
+						/**
+						* Attach Errors to form fields
+						* expecting resp.errors as an object with index being the input name,
+						* and value being the error message
+						*/
+						
+						if(resp.errors){
+							$.each(resp.errors,function(index,value){
+								var $controlGroup = $(".control-group:has(*[name='" +  index + "'])");
+								$controlGroup.addClass("error");
+								$("*[name='" +  index + "']",$controlGroup).popover({title:"error",content:value,placement:"top"});
+								$controlGroup.click(function(){
+									$(this).removeClass("error");
+									$("*[name='" +  index + "']",this).popover('disable');
+								});
+							});
+						}
 
 						break;
 					case -1:

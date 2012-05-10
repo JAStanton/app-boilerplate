@@ -23,17 +23,36 @@ class Ajax extends CI_Controller {
 	}
 	public function hello_world_2(){
 
-		$this->load->helper('form');
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
 
-		echo json_encode(array(				
-			"code" => $this->response["success"],
-			"message" => array(
-				"modal" => array(
-					"title"   => "great",
-					"message" => "success: '".set_value('test-input')."'"
+		$this->form_validation->set_rules('test-input', 'Sample input', 'trim|xss_clean|required');
+		if ($this->form_validation->run() == FALSE) {
+	
+			echo json_encode(array(				
+				"code" => $this->response["error"],
+				"errors"  => $this->form_validation->error_array(),
+				"message" => array(
+					"modal" => array(
+						"title"   => "Failure",
+						"message" => "validation failed."
+					)
 				)
-			)
-		));
+			));
+	
+		}else{
+
+			echo json_encode(array(				
+				"code" => $this->response["success"],
+				"message" => array(
+					"modal" => array(
+						"title"   => "great",
+						"message" => "success: '".set_value('test-input')."'"
+					)
+				)
+			));
+
+		}
 		
 	}
 
