@@ -83,13 +83,13 @@ var myApp = function() {
 								var $controlGroup = $(".control-group:has(*[name='" +  index + "'])");
 								$controlGroup.addClass("error");
 								$("*[name='" +  index + "']",$controlGroup).popover({title:"error",content:value,placement:"top"});
+								$("*[name='" +  index + "']",$controlGroup).popover('enable');
 								$controlGroup.click(function(){
 									$(this).removeClass("error");
 									$("*[name='" +  index + "']",this).popover('disable');
 								});
 							});
 						}
-
 						break;
 					case -1:
 						if (myApp.debug) consolelog("denied!");
