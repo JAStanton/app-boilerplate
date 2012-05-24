@@ -13,6 +13,10 @@
 
       		<hr>
 
+                  <a href="#" class="btn btn-danger ajax" data-confirm="Are you sure you want to do this action?" title="Ajax Action" data-url="hello_world">Delete Ajax Action</a>
+
+                  <hr>
+
       		<form action="hello_world_2" method="POST" class="well form-inline ajax" >
                         <div class="control-group">
                               <input type="text" class="input-small" name="test-input" placeholder="sample input">

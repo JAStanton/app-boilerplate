@@ -11,6 +11,7 @@
 			$this->carabiner->js(
 				array(
 					array( "bootstrap.js" ),
+					array( "helper.js" ),
 					array( "app.js" )
 				)
 			);
